@@ -1,0 +1,146 @@
+.payment_modal_container 
+{
+  z-index: 40000!important;
+  width: 100%;
+  height:100vh;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top:0;
+  right:0;
+  margin:auto;
+}
+.payment_modal_main_body 
+{
+  background: white;
+  margin: auto;
+  width: 40%;
+  height: 40%;
+  padding: 10px 20px;
+  position: relative;
+}
+.payment_modal_top 
+{
+    
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin: 6px 0px;
+    width: 100%;
+}
+
+.payment_modal_top .payment_option:hover 
+{
+  cursor: pointer;
+  background-color: rgb(195, 195, 233);
+}
+.payment_modal_top .payment_option 
+{
+  flex-grow: 1;
+  padding: 5px 5px;
+}
+.payment_modal_top .payment_option.active {
+  font-weight: bold;
+  border-bottom:2px solid #05254a; /* Change border color for the active option */
+}
+.payment_modal_close_icon
+{
+  position:absolute;
+  top: 0;
+  right: 0;
+}
+
+.payment_modal_close_icon:hover 
+{
+   cursor: pointer;
+}
+
+.mpesa_pay_form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex; /* Use flexbox for layout */
+  flex-direction: column; /* Stack elements vertically */
+  gap: 15px; /* Add spacing between elements */
+}
+
+.mpesa_pay_formHeading {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.2em;
+  color: #333;
+  flex-grow: 1; /* Allow heading to fill available width */
+}
+
+.mpesa_pay_label {
+  display: block;
+  width: 120px; /* Fixed width for labels */
+  margin-bottom: 0; /* Remove bottom margin for tighter spacing */
+  text-align: right; /* Align labels to the right */
+  font-weight: bold;
+}
+.mpesa_pay_input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%; /* Allow input to fill remaining space */
+  font-size: 0.9em; /* Slightly smaller input text */
+
+}
+
+.mpesa_pay_phoneNumberInput
+ {
+  /* Inherit styles from .input */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 60%; /* Allow input to fill remaining space */
+  font-size: 0.9em; /* Slightly smaller input text */
+}
+
+
+.mpesa_pay_form_error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+.mpesa_pay_formGroup {  /* New class to wrap label & input */
+  display: flex;
+  justify-content: space-between; /* Align label & input horizontally */
+}
+.mpesa_pay_btn 
+{
+  background-color: #00b894; /* Green color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 1em; /* Slightly larger button text */
+  margin-top: 15px; /* Add some space above the button */
+  width: 100%; /* Make button span the full width */
+}
+
+
+.mpesa_pay_btn:hover {
+  background-color: #00887a; /* Darker green on hover */
+}
+
+@media (min-width: 0px) and (max-width: 641px) {
+  .payment_modal_main_body {
+      z-index: 40000 !important;
+      background: white;
+      margin: auto;
+      width: 90%;
+      height: 45%;
+      border-radius: 15px;
+      padding: 20px 20px;
+      position: relative;
+    }
+}

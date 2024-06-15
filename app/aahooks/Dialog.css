@@ -1,0 +1,51 @@
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100!important;
+}
+
+.dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.user-table {
+    border-collapse: collapse;
+    width: 100%; /* Adjust width as needed */
+    margin: 1rem 0; /* Add some margin for better spacing */
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 0.5rem 1rem; /* Adjust padding for cell content */
+    border: 1px solid #ddd;
+    text-align: left; /* Align content to the left */
+  }
+  
+  .user-table thead th {
+    background-color: #f2f2f2; /* Light background for header */
+    font-weight: bold; /* Make header text bold */
+  }
+  
+  .number-column {
+    text-align: right; /* Align number of slots to the right */
+  }

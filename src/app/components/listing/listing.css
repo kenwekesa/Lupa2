@@ -1,0 +1,31 @@
+.image-gallery {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-image {
+    flex: 1;
+    max-height: 100%;
+    margin-right: 8px;
+}
+
+.main-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 18px 0 0 18px;
+}
+
+.small-images {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.small-images img {
+    width: calc(50% - 5px);
+    height: auto;
+}

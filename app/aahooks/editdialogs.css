@@ -1,0 +1,211 @@
+.dialog-overlay-edits {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%!important;
+    height: 100%!important;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    overflow-y: auto !important;
+    justify-content: center;
+    align-items: center;
+    z-index: 100!important;
+}
+
+.dialog-edits {
+    /* background-color: white; */
+    padding: 20px;
+    width: 94%!important;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close-button-edits {
+    position: fixed;
+    top: 0;
+    left: 1;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 100!important;
+}
+
+.form-groups-containers {
+  display: flex;
+  flex-wrap: wrap; /* Allow form groups to wrap to next row */
+  gap: 1rem; /* Add spacing between form groups */
+}
+
+/* .form-groups-container-edits {
+  margin-top: 30vh!important;
+} */
+
+.edit-tour-form-edits {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%!important;
+    margin-left: 10%;
+    padding: 2rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    overflow-y: auto !important;
+      /* Enable vertical scrolling */
+    height: auto !important;
+    /* margin-top: 60vh !important; */
+  }
+  
+  .edit-tour-form-edits h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group-edits {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group-edits label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group-edits input[type="text"],
+  .form-group-edits input[type="number"],
+  .form-group-edits input[type="url"],
+  .form-group-edits textarea {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    min-width: 100%;
+  }
+  
+  .form-group-edits textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+    resize: vertical;
+    min-height: 100px;
+    /* width: 70% !important; */
+    box-sizing: border-box; /* Ensure padding and border are included in width calculation */
+  }
+  
+  .form-group-edits select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    outline: none;
+  }
+
+  .description-edits {
+    width: 65% !important;
+  }
+  
+  .form-group-edits button {
+    background-color: #4CAF50; /* Green color */
+    border: none;
+    width: auto!important;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .form-group-edits button:hover {
+    background-color: #45a049; /* Green hover color */
+  }
+
+@media (orientation: portrait) and (min-width: 0px) and (max-width: 641px) {
+  .edit-tour-form-edits {
+      width: 95% !important;
+      margin-left: 0%;
+      overflow-y: auto!important;
+      /* Enable vertical scrolling */
+      height: auto!important;
+      margin-top: 160vh !important;
+      /* Set height to full viewport height */
+    }
+
+    .dialog-overlay-edits {
+        overflow-y: auto !important;
+        /* Enable vertical scrolling */
+        /* height: 100vh !important; */
+        /* Set height to full viewport height */
+    }
+    .form-groups-container-edits {
+        width: 97% !important;
+        margin-left: 0%;
+        overflow-y: auto !important;
+        /* Enable vertical scrolling */
+        height: auto !important;
+        /* Set height to full viewport height */
+    }
+
+
+}
+
+@media (min-width: 545px) and (max-width: 641px) {
+  .edit-tour-form-edits {
+      margin-top: 160vh !important;
+      width: 95% !important;
+      margin-left: 0%;
+    }
+  
+    /* .form-groups-container-edits {
+      margin-top: 150vh !important;
+      margin-left: 0%;
+    } */
+}
+
+@media (min-width: 501px) and (max-width: 544px) {
+  .edit-tour-form-edits {
+      margin-top: 160vh !important;
+      width: 95% !important;
+      margin-left: 0%;
+    }
+  
+    /* .form-groups-container-edits {
+      margin-top: 150vh !important;
+      margin-left: 0%;
+    } */
+}
+
+
+@media (min-width: 381px) and (max-width: 500px) {
+  .edit-tour-form-edits {
+      margin-top: 160vh !important;
+      width: 95% !important;
+      margin-left: 0%;
+    }
+  
+    /* .form-groups-container-edits {
+      margin-top: 150vh !important;
+      margin-left: 0%;
+    } */
+}
+
+
+@media (min-width: 0px) and (max-width: 395px) {
+  .edit-tour-form-edits {
+      margin-top: 160vh !important;
+      width: 95% !important;
+      margin-left: 0%;
+  }
+  /* .form-groups-container-edits {
+    margin-top: 200vh !important;
+    margin-left: 0%;
+  } */
+}

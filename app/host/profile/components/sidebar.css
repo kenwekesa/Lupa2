@@ -1,0 +1,11 @@
+@media (min-width: 0px) and (max-width: 641px) {
+   .sidebar-image{
+        display: none!important;
+        visibility: hidden!important;
+   }
+   .sidebar-image-main{
+    padding-left: 8px!important;
+    padding-right: 8px!important;
+    margin-left: -7%!important;
+   }
+}
