@@ -8,7 +8,6 @@ export interface IToursParams {
     startDate?: string;
     endDate?: string;
     locationValue?: string;
-    country?:string;
     category?: string;
 }
 
@@ -22,7 +21,6 @@ export default async function getTours(
             guestCount,
             // bathRoomCount,
             locationValue,
-            country,
             startDate,
             endDate,
             category
@@ -61,9 +59,6 @@ export default async function getTours(
 
         if (locationValue) {
             query.locationValue = locationValue;
-        }
-        if (country) {
-            query.country = country;
         }
 
         if (startDate && endDate) {

@@ -162,7 +162,7 @@ const TourClient: React.FC<TourClientProps> = ({
           if (data && data.status === 'COMPLETED') {
       
               {
-                  setShowPay(false) 
+                  setShowPay(false)
                   console.log("Payment Data", dataa)
                   axios.put(`/api/tours/${tour?.id}`, {
                       from_flag:'reservation',

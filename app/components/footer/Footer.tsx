@@ -8,12 +8,16 @@ import FooterTop from "./FooterTop"
 const Footer = () => {
     return (
    
-    <div className="text-white footer-main">
+    <div className="footer-main pt-14 pb-2">
         <Container>
-        <FooterTop />
-        <hr />  
+        {/* <FooterTop />
+        <hr />   */}
         <FooterMiddle /> 
-          <hr />   
+        </Container>
+        <div className="text-neutral-700 bg-neutral-700">
+            <hr className="border-0 h-[1px] bg-neutral-700"/>
+        </div>  
+        <Container>
         <FooterBottom />  
         </Container>    
     </div>

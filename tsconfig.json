@@ -6,11 +6,14 @@
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "target": "esnext",
+    "module": "commonjs",
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
     "incremental": true,
     "plugins": [
       {
@@ -18,9 +21,9 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "server.js", "app/api/mpesa/callback/route.Ts"],
   "exclude": ["node_modules"]
 }

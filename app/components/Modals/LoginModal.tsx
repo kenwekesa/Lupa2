@@ -19,6 +19,8 @@ import toast from 'react-hot-toast';
 import Button from '../container/Button';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import { useRouter } from 'next/navigation';
+import Link from "next/link"
+import Lago from '../navbar/Lago';
 
 const LoginModal = () => {
     const router = useRouter()
@@ -66,12 +68,13 @@ const LoginModal = () => {
     }, [LoginModal, registerModal]);
 
     const bodyContent = (
-        <div className='flex flex-col gap-4'>
-            <Heading
+        <div className='flex flex-col gap-3'>
+            {/* <Heading
                 title='Welcome back'
                 subtitle='Login to your account'
                 // center
-            />
+            /> */}
+            <p className='font-semibold'>Login to your account</p>
             <Input
                 id='email'
                 label='Email'
@@ -89,29 +92,33 @@ const LoginModal = () => {
                 error={errors}
                 required
             />
+            <p className='text-[12px]'>By continuing, you agree to Lee-yan smart properties <Link href="/" className='text-blue-600'>Conditions of Use</Link> and <Link href="/" className='text-blue-600'>Privacy Notice.</Link></p>
         </div>
     )
 
     const footerContent = (
-        <div className='flex flex-col gap-4 mt-3'>
+        <div className='flex flex-col gap-4 mt-0'>
             <hr />
-            {/* <div className='google-btn'>
-            <Button
+            <div className=''>
+            {/* <Button
                 outline
                 label='Continue with Google'
                 icon={FcGoogle}
                 onClick={() => signIn('google')}
-                />
-            </div> */}
-            <div className='text-normal-500 text-center mt-4 font-light'>
-                <div className='justify-center flex flex-row items-center gap-2'>
-                    <div>
-                        First time using Devancetours?
+                /> */}
+                <p className='border-[1px] border-solid hover:cursor-pointer py-[6px] gap-3 border-neutral-300 w-full flex justify-center hover:shadow-md items-center rounded-md' onClick={() => signIn('google')}><span className='text-neutral-600'>Sign in with google</span> <span><FcGoogle size={24} /> </span></p>
+            </div>
+            <div className='text-normal-500 text-center mt-1 font-light'>
+                <div className='items-center gap-2'>
+                    <div className='flex mb-3 gap-1 justify-center items-center'>
+                        <div className='w-[90px] h-[4px]'><hr /></div>
+                        <div><p className='text-sm text-neutral-600'>New to Lee-yan smart properties?</p></div>
+                        <div  className='w-[90px] h-[4px]'><hr /></div>
                     </div>
                     <div
                         onClick={toggle}
-                        className='text-neutral-800 cursor-pointer hover:underline'>
-                        Create an Account
+                        className='text-neutral-800 justify-center hover:bg-neutral-100 border-[1px] border-solid border-neutral-300 rounded-lg px-5 py-[6px] text-sm hover:shadow-md cursor-pointer'>
+                        Create a new your  account
                     </div>
                 </div>
             </div>
@@ -121,8 +128,8 @@ const LoginModal = () => {
     <Modal
           disabled={isLoading}  
           isOpen={LoginModal.isOpen} 
-          title='Login'
-          actionLabel='Continue'
+          title={<Lago />}
+          actionLabel='Submit'
           onClose={LoginModal.onClose}
           onSubmit={handleSubmit(onSubmit)} 
           body={bodyContent}

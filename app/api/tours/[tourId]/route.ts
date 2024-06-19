@@ -58,6 +58,7 @@ export async function PUT(
     const from_flag = formData.from_flag
 
     const tour = await prisma.tour.findUnique({ where: { id:tourId } });
+    
     if(from_flag === 'reservation')
     {
     const slots = formData.slots;

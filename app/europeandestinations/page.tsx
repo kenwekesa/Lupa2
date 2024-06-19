@@ -84,7 +84,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href={{ pathname:'/destination', query: { continent: "europe" }}}>View european destinations</Link>
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/alleuropeandestinations">View european destinations</Link>
         </div>
           </Container>
           

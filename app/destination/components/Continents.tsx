@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { GiAfrica } from "react-icons/gi";
+import { GiAfrica, GiKenya } from "react-icons/gi";
 
 interface Product {
   id: number;
@@ -11,13 +11,35 @@ interface Product {
 
 interface ProductListProps {
   products: Product[];
-  country:string;
-  setCountry:React.Dispatch<React.SetStateAction<string>>;
+  county:string;
+  setCounty:React.Dispatch<React.SetStateAction<string>>;
+  setCity:React.Dispatch<React.SetStateAction<string>>;
+   counties:string[]
 }
  
-const Contients: React.FC<ProductListProps> = ({ products, country, setCountry }) => {
+const Contients: React.FC<ProductListProps> = ({ products, county, setCounty, setCity, counties }) => {
   const [sortOption, setSortOption] = useState<string>('popularity');
   const [sortDirection, setSortDirection] = useState<boolean>(true);
+
+
+ // const [selectedCounty, setSelectedCounty] = useState('');
+
+  const handleCheckboxChange = (selectedCounty:string) => { 
+    if (selectedCounty === county) {
+      setCounty('');  // Uncheck the checkbox if it's already checked
+    } else {
+      setCounty(selectedCounty);
+    }
+  };
+
+  const handleAllChange = () => {
+    if (county === 'all') {
+      setCounty('');  // Uncheck the 'All' checkbox if it's already checked
+    } else {
+      setCounty('all');  // Check the 'All' checkbox
+    }
+  };
+
 
   const sortedProducts = (): Product[] => {
     const sorted = products.slice().sort((a, b) => {
@@ -52,8 +74,8 @@ const Contients: React.FC<ProductListProps> = ({ products, country, setCountry }
     <div className='bg-white outline-none shadow-md py-4 px-2 rounded-xl'>
         <ul>
         <div className='flex flex-row items-center gap-2'>
-            <GiAfrica size={24} />  
-            <p>Africa</p>      
+            <GiKenya size={24}/>  
+            <p>Counties</p>      
         </div>
         <div className='py-3'>
           <hr />
@@ -62,22 +84,24 @@ const Contients: React.FC<ProductListProps> = ({ products, country, setCountry }
         <label className='gap-2 flex flex-row items-center'>
             <input
               type="checkbox"
-              checked={country  === 'all'}
-               onChange={() => setCountry('all')}
+              checked={county  === 'all'}
+              onChange={() => handleCheckboxChange("all")}
                 className='p-2 h-5 w-5'
             />
             All
           </label>
-          <label className='gap-2 flex flex-row items-center'>
-            <input
-              type="checkbox"
-              checked={!!country && country[0].toUpperCase() + country.slice(1) === 'Kenya'}
-               onChange={() => setCountry('Kenya')}
-                className='p-2 h-5 w-5'
-            />
-            Kenya
-          </label>
-          <label className='gap-2 text-sm flex flex-row items-center'>
+          {counties.map((item, index) => (
+      <label className='gap-2 flex flex-row items-center' key={index}>
+        <input
+          type="checkbox"
+          checked={county && county.toLowerCase() === item.toLowerCase()}
+          onChange={() => handleCheckboxChange(item)}
+          className='p-2 h-5 w-5'
+        />
+        {item}
+      </label>
+    ))}
+          {/* <label className='gap-2 text-sm flex flex-row items-center'>
             <input
               type="checkbox"
               checked={!!country && country[0].toUpperCase() + country.slice(1) === 'Uganda'}
@@ -112,7 +136,7 @@ const Contients: React.FC<ProductListProps> = ({ products, country, setCountry }
               className='p-2 h-5 w-5'
             />
             South Africa
-          </label>
+          </label> */}
         </li>
       </ul>
 

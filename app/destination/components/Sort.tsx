@@ -16,7 +16,7 @@ interface ProductListProps {
 }
 
 const Sort: React.FC<ProductListProps> = ({ products, sortOption, setSortOption }) => {
- // const [sortOption, setSortOption] = useState<string>('popularity');
+  // const [sortOption, setSortOption] = useState<string>('popularity');
 
   const sortedProducts = (): Product[] => {
     switch (sortOption) {

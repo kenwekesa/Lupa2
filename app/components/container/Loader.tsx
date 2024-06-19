@@ -1,6 +1,6 @@
 'use client'
 
-import { PuffLoader } from "react-spinners";
+import { PuffLoader, ClipLoader, BounceLoader, GridLoader, BeatLoader, BarLoader, CircleLoader, HashLoader, RingLoader, SyncLoader } from "react-spinners";
 
 const Loader = () => {
     return (
@@ -9,9 +9,9 @@ const Loader = () => {
         {/* <h1 className="color-h1-destinations-main-loader">Loa<span className="color-span-green">ding...</span></h1> */}
       </div>
         <div className="h-[60vh] flex flex-col justify-center items-center">
-            <PuffLoader
+            <RingLoader
                 size={100}
-                color="orange"
+                color="green"
             />
             </div>
         </div>

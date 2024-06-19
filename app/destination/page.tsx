@@ -11,7 +11,8 @@ import TourStyles from "./components/TourStyles";
 import TourOperators from "./components/TourOperators";
 import TourSize from "./components/TourSize";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { SafeUser } from "../types";
@@ -23,19 +24,30 @@ interface IParams {
   tourParams: IToursParams;
 }
 
-interface DestinationParams { 
+interface SearchParams { 
   searchParams:{
   destination:string,
-  continent:string,
+  checkinDate:string,
+  checkoutDate:string,
+  county:string,
+  children:number,
+  adults:number,
+  rooms:number
   }
 }
 
-
+interface Stay {
+  county: string;
+ town : string;
+  // Add other properties as needed
+}
  
 
 
 // Define the AllDestinationsPage component as a server component
-export default function DestinationFilterPage({ searchParams }:DestinationParams) {
+export default function DestinationFilterPage({ searchParams }:SearchParams) {
+
+
 
   //const [destination, setDestination] = useState({})
   const [query, setQuery] = useState('');
@@ -43,53 +55,55 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [currentUser, setCurrentUser] = useState<SafeUser | null>(null)
-    const [country, setCountry] = useState(searchParams.destination)
-    const [continent, setContinent] = useState(searchParams.continent) 
+    const [city, setCity] = useState(searchParams.destination)
+    const [county, setCounty] = useState(searchParams.county)
+
+    const [checkinDate, setCheckinDate] = useState(searchParams.checkinDate) 
+    const [checkoutDate, setCheckoutDate] = useState(searchParams.checkoutDate) 
+    const [options, setOptions] = useState({rooms:searchParams.rooms, adults:searchParams.adults, children:searchParams.children})
+    // const [continent, set] = useState(searchParams.continent) 
     const [tours, setTours] = useState([])
     const [sortOption, setSortOption] = useState<string>('popularity');
     const [currentPage, setCurrentPage] = useState(1);
 
+    const [cityCountry, setCityCountry] = useState<string[]>([]);
+    const [counties, setCounties] = useState<string[]>([])
 
-  //const [country, setCountry] = useState(destination)//:'', category:'',operator:''});
+
+
+  console.log("Checkout from  page", checkoutDate)
+  console.log("Checkin from  page", checkinDate)
+  
  
 
-  //const tour_Params: IToursParams = {country: destination}
+  useEffect(() => {
+    // Fetch the tours data
+    axios
+    .get<Stay[]>('/api/stays')
+    .then((response) => {
+      
+      const listings = response.data;
+      const uniqueCityCounties = Array.from(
+        new Map(listings.map(listing => [`${listing.town}-${listing.county}`, listing])).values()
+      );
+      const uniqueCounties = [...new Set(listings.map((listing) => listing.county))];
 
-  //console.log("Country-->", country)
-  // useEffect(()=>{
-
-  //     const handleSearch = async () => {
-
-  //         setLoading(true);
-  //         setError(null);
-          
-  //         try {
-  //           console.log("Searching....")
-  //             const response = await axios.get(`/api/listings?destination=${destination}`);
-  //             //   const response = await fetch(`/api/listings?query=${query}`);
-              
-  //             console.log('Response--->',response)
-  //             if (!response) {
-  //                 throw new Error('Failed to fetch data');
-  //               }
-  //               const data = await response.data;
-  //               setTours(data)
-                
-  //               console.log("Data--->", data)
-  //           } catch (error) {
-  //               //setError(error.message);
-  //           } finally {
-  //               setLoading(false);
-  //           }
-  //       };
-
-  //       handleSearch()
-  //   },[destination])
+      setCounties(uniqueCounties) 
+      console.log("UniqueCityCojntries----]]", uniqueCityCounties)
+      //setCountries(uniqueCounties);
+    })
+    .catch((error) => console.error(error));
+    // getTours({})
+    //   .then((tours) => {
+    //     // Extract the unique countries from the tours data
+    //     const uniqueCountries = [...new Set(tours.map((tour) => tour.country))].filter((country): country is string => country !== null);
+    //     setCountries(uniqueCountries);
+    //     console.log('Unique Countries', uniqueCountries)
+    //   })
+    //   .catch((error) => console.error(error));
+  }, []);
 
 
-  const destination = {'country': country, 'continent':continent}
-
-  console.log("Continent--->", continent)
 
   useEffect(() => {
     const handleSearch = async () => {
@@ -100,9 +114,14 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
         console.log("Searching....");
 
         // Fetch listings and user data concurrently
-        const [listingsResponse, userResponse] = await Promise.all([
-          axios.get(`/api/tours?continent=${continent}&country=${country}`),
-          axios.get(`/api/user`)
+        const [listingsResponse,
+          //  userResponse
+          ] = await Promise.all([
+          axios.get(`/api/stays?checkinDate=${checkinDate}
+            &checkoutDate=${checkoutDate}
+            &city=${city}&county=${county}&adults=${options.adults}
+            &children=${options.children}&rooms=${options.rooms}`),
+          // axios.get(`/api/user`)
         ]);
 
         // Handle listings data
@@ -110,14 +129,17 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
           throw new Error('Failed to fetch listings data');
         }
         const listingsData = listingsResponse.data;
+
+        console.log("listing response", listingsResponse)
+        console.log("listingData", listingsData)
         setTours(listingsData);
 
-        // Handle user data
-        if (!userResponse) {
-          throw new Error('Failed to fetch user data');
-        }
-        const userData = userResponse.data;
-        setCurrentUser(userData);
+        // // Handle user data
+        // if (!userResponse) {
+        //   throw new Error('Failed to fetch user data');
+        // }
+        // const userData = userResponse.data;
+        // setCurrentUser(userData);
 
    
       } catch (error) {
@@ -129,7 +151,7 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
     };
 
     handleSearch();
-  }, [country, continent]);
+  }, [county, checkinDate, checkoutDate]);
   
   //console.log('destination', destination)
 
@@ -147,7 +169,7 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
     }, [sortOption]);
   
     const sortedTours = [...tours]
-      .filter(tour => tour.tourists.length < tour.guestCount)
+      .filter(tour => 0 < tour.guestCount)
       .sort((a, b) => {
         if (sortOption === 'priceLowestFirst') {
           return a.price - b.price;
@@ -164,11 +186,11 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
     const products: any = [];
 
     // Check if there are no listings, display EmptyState component
-    if (visibleTours.length === 0) {
+    if (visibleTours?.length === 0) {
       return <EmptyState showReset />;
     }
 
-    const totalPages = Math.ceil(tours.length / PAGE_SIZE);
+    const totalPages = Math.ceil(tours?.length / PAGE_SIZE);
 
     return (
       <div>
@@ -191,17 +213,17 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
               <div className="filter-bg-color rounded-2xl items-center py-2 pl-2 pr-6 sm:pr-1 text-start all-destination-filter">
                 <p className="">Filter Results</p>
               </div>
-              <div className="font-semibold text-xl">{visibleTours.length} Tours</div>
+              <div className="font-semibold text-xl">{visibleTours?.length} Tours</div>
             </div>
             <div>
-              <Sort products={products} sortOption ={sortOption} setSortOption={setSortOption}/>
+              <Sort products={products} sortOption={sortOption} setSortOption={setSortOption}/>
             </div>
           </div>
         </Container>
         <Container>
           <div className="pt-0 items-start grid grid-cols-5 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-5 2xl:grid-cols-5 gap-8">
             <div className="col-span-1 flex flex-col gap-6 all-destination-products">
-              <Contients products={products} country={country} setCountry={setCountry} />
+              <Contients products={products} country={county} setCounty={setCounty} setCity={setCity} counties={counties} /> 
                {/* //country={country} setCountry={setCountry} /> */}
               <TourStyles products={products} />
               <TourOperators products={products} />
@@ -246,7 +268,7 @@ export default function DestinationFilterPage({ searchParams }:DestinationParams
                 )}
               </div>
             </div>
-          </div>
+          </div> 
         </Container>
       </div>
     );

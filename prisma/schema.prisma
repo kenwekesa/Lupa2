@@ -5,7 +5,6 @@
 generator client {
   provider        = "prisma-client-js"
   previewFeatures = ["filterJson"]
-
 }
 
 // Datasource block for connecting to MongoDB, using the URL from the environment variables
@@ -35,6 +34,10 @@ model User {
   reservations Reservation[] // One-to-many relationship with the "Reservation" model
   tours        Tour[]
   reserv       Reserv[]
+  propertysale Property[]
+  land         Land[]
+  offers       Offers[]
+  county       County[]
 }
 
 // Model representing the "Account" entity in the database
@@ -60,41 +63,46 @@ model Account {
 
 // Model representing the "Listing" entity in the database
 model Listing {
-  id            String        @id @default(auto()) @map("_id") @db.ObjectId
-  title         String // Title of the listing
-  house         String? // Description of the listing
-  hotel         String?
-  hotelLink     String?
-  description   String
-  imageSrc      String[] // URL for the listing image
-  createAt      DateTime      @default(now()) // Date and time when the listing was created
-  category      String // Category of the listing
-  roomCount     Int // Number of rooms in the listing
-  bathRoomCount Int // Number of bathrooms in the listing
-  guestCount    Int // Number of guests the listing can accommodate
-  locationValue String // Location value of the listing
-  userId        String        @db.ObjectId // Foreign key referencing the "User" model
-  price         Int // Price of the listing
-  save          Int?
-  city          String?
-  hostName      String?
-  cohostName    String?
-  hostContact   String?
-  startDate     String?
-  endDate       String?
-  distance      String?
-  country       String?
-  continent     String?
-  offers        String?
-  overView      String?
-  oneBedroom    String?
-  twoBedroom    String?
-  threebedRoom  String?
-  commonPlace   String?
+  id               String        @id @default(auto()) @map("_id") @db.ObjectId
+  title            String // Title of the listing
+  hotelLink        String?
+  imageSrc         String[] // URL for the listing image
+  bedPhotos        String[] // URL for the
+  createAt         DateTime      @default(now()) // Date and time when the listing was created
+  category         String // Category of the listing
+  roomCount        Int // Number of rooms in the listing
+  bathRoomCount    Int // Number of bathrooms in the listing
+  guestCount       Int // Number of guests the listing can accommodate
+  bedcount         Int // Number of
+  bedroomCount     Int // Number of
+  childrenCount    Int?
+  datesUnavailable DateTime[]
+  funActivities    String[]
+  meals            String[]
+  ratings          Int
+  hostExperience   String?
+  county           String?
+  town             String?
+  type             String?
+  bedroom          String[]
+  beds             String[]
+  offers           String[]
+  hostPhoto        String
+  userId           String        @db.ObjectId // Foreign key referencing the "User" model
+  price            Int? // Price of the listing
+  offerPrice       Int?
+  hostName         String?
+  verified         String?
+  joinDate         String?
+  hostType         String?
+  hostEmail        String?
+  hostContact      String?
+  distance         String?
+  overView         String?
   // Relationship with the "User" model
-  user          User          @relation(fields: [userId], references: [id], onDelete: Cascade)
-  reservations  Reservation[] // One-to-many relationship with the "Reservation" model
-  Reserv        Reserv[]
+  user             User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reservations     Reservation[] // One-to-many relationship with the "Reservation" model
+  Reserv           Reserv[]
 }
 
 // Blog Modal
@@ -121,27 +129,42 @@ model Blog {
   createdAt        DateTime @default(now()) // Date and time when the reservation was created
 }
 
+model Offers {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title      String // Title of the listing
+  days       String?
+  action     String?
+  category   String?
+  type       String?
+  subtitle   String?
+  county     String?
+  town       String?
+  inclusion  String[]
+  imageSrc   String[] // URL for the listing image
+  price      Int?
+  offerprice Int?
+  createdAt  DateTime @default(now()) // Date and time when the reservation was created
+  userId     String?  @db.ObjectId // Foreign key referencing the "User" model
+  user       User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
 
 // Model representing the "PaymentLog" entity in the database
 model Paymentlog {
-  id               String   @id @default(auto()) @map("_id") @db.ObjectId
-  paymentDetails Json? // Field for holding payment details
-  merchantRequestId    String?
-  checkoutRequestId    String?
-  createdAt        DateTime @default(now()) // Date and time when the log was created
- 
-
-
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  paymentDetails    Json? // Field for holding payment details
+  merchantRequestId String?
+  checkoutRequestId String?
+  createdAt         DateTime @default(now()) // Date and time when the log was created
 }
 
 // Model representing the "Reservation" entity in the database
 model Reservation {
-  id             String   @id @default(auto()) @map("_id") @db.ObjectId
-  
-  user           User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId         String?  @db.ObjectId // Foreign key referencing the "User" model
-  Listing        Listing? @relation(fields: [listingId], references: [id], onDelete: Cascade)
-  listingId      String?  @db.ObjectId // Foreign key referencing the "Listing" model
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String?  @db.ObjectId // Foreign key referencing the "User" model
+  Listing   Listing? @relation(fields: [listingId], references: [id], onDelete: Cascade)
+  listingId String?  @db.ObjectId // Foreign key referencing the "Listing" model
 
   numberOfGuests Int // Guest specified for this reservatione
   numberOfRooms  Int //Number of rooms specified for reservation
@@ -209,6 +232,67 @@ model Tour {
   // Relationship with the "User" model
   user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   reserv Reserv[]
+}
+
+model Property {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  title         String // Title of the listing
+  roomCount     Int // Description of the listing
+  bathRoomCount Int // URL for the listing image
+  bedRoomCount  Int // URL for the listing image
+  toiletCount   Int // Description of the listing
+  county        String?
+  category      String? //
+  town          String?
+  size          String?
+  imageSrc      String[] // URL for the listing image
+  availability  String?
+  type          String?
+  deal          String? //
+  parking_space String?
+  price         Int?
+  offerPrice    Int? // Description
+  amenities     String[]
+  overview      String?
+  createdAt     DateTime @default(now()) // Date and time when the reservation was created
+  userId        String   @db.ObjectId // Foreign key referencing the "User" model
+  // Relationship with the "User" model
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // reserv Reserv[]
+}
+
+model County {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  county    String?
+  category  String? //
+  createdAt DateTime @default(now()) // Date and time when the reservation was created
+  imageSrc  String // URL for the listing image
+  userId    String   @db.ObjectId // Foreign key referencing the "User" model
+  // Relationship with the "User" model
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // reserv Reserv[]
+}
+
+model Land {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  title        String // Title of the listing
+  county       String?
+  town         String?
+  size         String?
+  category     String?
+  imageSrc     String[] // URL for the listing image
+  type         String?
+  deal         String? //
+  covered_area String? // URL
+  price        Int?
+  createdAt    DateTime @default(now()) // Date and time when the reservation was created
+  offerPrice   Int? // Description
+  titleDeed    String? //
+  overview     String?
+  userId       String   @db.ObjectId // Foreign key referencing the "User" model
+  // Relationship with the "User" model
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // reserv Reserv[]
 }
 
 model Reserv {

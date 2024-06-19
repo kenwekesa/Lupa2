@@ -1,0 +1,66 @@
+'use client';
+
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+
+interface Option {
+    value: string;
+    label: string;
+}
+
+interface SelectProps {
+    id: string;
+    label: string;
+    options: Option[];
+    disabled?: boolean;
+    required?: boolean;
+    register: UseFormRegister<FieldValues>;
+    error: FieldErrors;
+    style?: React.CSSProperties; // Making style attribute optional
+    className?: string; // Making className attribute optional
+    value: string;
+    onChange: (value: string) => void;
+}
+
+const Select: React.FC<SelectProps> = ({
+    id,
+    label,
+    options,
+    disabled,
+    register,
+    required,
+    style,
+    className,
+    error,
+    value,
+    onChange
+}) => {
+  return (
+    <div className="w-full relative">
+          <select
+             id={id}
+             disabled={disabled}
+             {...register(id, { required })}
+             value={value}
+             onChange={(e) => onChange(e.target.value)}
+             style={style} // Using style attribute here (if provided)
+             className={
+                  `peer w-full p-2 pt-3 font-light bg-white border-[1px] rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed pl-4
+                  ${error[id] ? 'border-rose-500' : 'border-neutral-300'} ${error[id] ? 'focus:border-rose-500' : 'focus:border-black'} ${className}`
+             }
+          >
+              <option value="" disabled>Select {label}</option>
+              {options.map((option) => (
+                  <option key={option.value} value={option.value}>
+                      {option.label}
+                  </option>
+              ))}
+          </select>
+          <label className={`
+          absolute text-sm duration-150 transform -translate-y-3 top-4 z-10 origin-[0] left-4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4 ${error[id] ? 'text-rose-500':'text-zinc-400'}`}>
+              {label}
+          </label>
+    </div>
+  )
+}
+
+export default Select;

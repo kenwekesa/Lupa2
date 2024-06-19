@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 import useBlogModal from "@/app/hooks/useBlogModel";
 import Modals from "./Modals";
+import Lago from "../navbar/Lago";
 
 enum STEPS {
     CATEGORY = 0,
@@ -359,7 +360,7 @@ const BlogModal = () => {
 
   return (
       <Modal
-          title="Devanca Tours!"
+          title={<Lago />}
           isOpen={blogModal.isOpen}
           onClose={blogModal.onClose}
           secondaryAction={step === STEPS.CATEGORY ? undefined: onBack}

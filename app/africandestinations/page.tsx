@@ -29,7 +29,7 @@ interface HotelPageProps {
      tourParams: IToursParams;
 }
 
- 
+
 export const metadata: Metadata =  {
   title: "African Destinations",
 }
@@ -87,7 +87,7 @@ const DestinationPage = async ({ searchParams, tourParams }: HotelPageProps) => 
         })}
         </div>
         <div className="w-full text-center pt-8">
-          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href={{ pathname:'/destination', query: { continent: "africa" }}}>View african destinations</Link> 
+          <Link className="outline-main-btn px-4 hover:bg-slate-400 hover:text-green-400 hover:shadow-md" href="/allafricandestinations">View african destinations</Link>
         </div>
           </Container>
           

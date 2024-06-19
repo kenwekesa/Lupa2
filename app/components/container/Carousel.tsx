@@ -39,13 +39,15 @@ const Carousel = () => {
                             {/* Add a div for the overlay */}
                             {/* <div className="overlay absolute inset-0 bg-black bg-opacity-15"></div> */}
                             <Image
-                                src={images[index].src}
+                                src={images[0].src}
+                                // src={images[index].src}
                                 fill={true}
                                 layout="fill"
                                 className="carousel-images w-full object-cover"
                                 alt=""
                             />
-                        <div className="overlay carousel-images absolute inset-0 bg-black bg-opacity-20"></div>
+                            {/* <div className="overlay carousel-images absolute inset-0 bg-black bg-opacity-20"></div> */}
+                            <div className="overlay carousel-images absolute inset-0"></div>
                         </div>
                     ))}
                 </div>

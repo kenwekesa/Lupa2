@@ -1,0 +1,86 @@
+.embla__viewport {
+    overflow: hidden;
+}
+
+.embla__container {
+    display: flex;
+}
+
+.embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+
+/* .embla__dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.embla__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: green;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.embla__dot--selected {
+    background-color: black;
+} */
+
+/* .embla__dots {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.embla__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: green;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.embla__dot--selected {
+    background-color: black;
+} */
+
+.embla {
+    position: relative;
+}
+
+.embla__dots {
+    position: absolute;
+    right: 20px;
+    /* Adjust as needed */
+    bottom: 20px;
+    /* Adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.embla__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: green;
+    /* Default dot color */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.embla__dot--selected {
+    background-color: black;
+    /* Selected dot color */
+}

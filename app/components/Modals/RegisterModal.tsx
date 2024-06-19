@@ -19,6 +19,8 @@ import Button from '../container/Button';
 import { signIn } from 'next-auth/react';
 import useLoginModal from '@/app/hooks/useLoginModal';
 import getCurrentUser from '@/app/actions/getCurrentUsers';
+import Lago from '../navbar/Lago';
+import Link from "next/link"
 
 const RegisterModal = () => {
     const registerModal = useRegisterModal();
@@ -26,9 +28,21 @@ const RegisterModal = () => {
     const [isLoading, setIsLoading] = useState(false);
     const userType = registerModal.userType
     const baseUrl = typeof window !== 'undefined' ? `${window.location.protocol}//${window.location.host}` : '';
+    const [emailError, setEmailError] = useState(''); // Error state for email
 
     
-    
+    const checkEmailExists = async (email: any) => {
+        console.log("Main", email)
+        try {
+          const response = await axios.post('/api/users', { email });
+          console.log("response mail check", response)
+          return response.data.exists; // Expecting { exists: true/false }
+        } catch (error) {
+          console.error("Error checking email:", error);
+          return false; // Or handle error appropriately
+        }
+      };
+
     const {
         register,
         handleSubmit,
@@ -46,9 +60,16 @@ const RegisterModal = () => {
         }
     });
 
-    const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    const onSubmit: SubmitHandler<FieldValues> = async (data) => {
         setIsLoading(true);
 
+         // Check if email exists before submitting
+    const emailExists = await checkEmailExists(data.email);
+    if (emailExists) {
+        setEmailError('Email is already registered');
+        setIsLoading(false);
+        return;
+      }
         axios.post('/api/register', {...data, userType:userType})
             .then(async () => {
 
@@ -102,10 +123,11 @@ const RegisterModal = () => {
     const bodyContent = (
         <div className='flex flex-col gap-4'>
             <Heading
-                title='Welcome to DevanceTours'
-                subtitle='Create an Account'
+                title='Create a new account'
+                subtitle=''
                 // center
             />
+             {emailError && <p className="text-red-500">{emailError}</p>} {/* Display manual email error */}
             <Input
                 id='name'
                 label='Name'
@@ -123,7 +145,7 @@ const RegisterModal = () => {
                 error={errors}
                 required
             />
-            <Input
+            {/* <Input
                 id='country'
                 label='country'
                 type='text'
@@ -131,7 +153,7 @@ const RegisterModal = () => {
                 register={register}
                 error={errors}
                 required
-            />
+            /> */}
             <Input
                 id='email'
                 label='Email'
@@ -149,6 +171,7 @@ const RegisterModal = () => {
                 error={errors}
                 required
             />
+            <p className='text-[12px]'>By continuing, you agree to Lee-yan smart properties <Link href="/" className='text-blue-600'>Conditions of Use</Link> and <Link href="/" className='text-blue-600'>Privacy Notice.</Link></p>
         </div>
     )
 
@@ -165,13 +188,10 @@ const RegisterModal = () => {
             </div> */}
             <div className='text-normal-500 text-center mt-4 font-light'>
                 <div className='justify-center flex flex-row items-center gap-2'>
-                    <div>
-                        Already have an account?
-                    </div>
                     <div
                         onClick={toggle}
-                        className='text-neutral-800 cursor-pointer hover:underline'>
-                        Log in
+                        className='text-neutral-800 w-full justify-center hover:bg-neutral-100 border-[1px] border-solid border-neutral-300 rounded-lg px-5 py-[6px] text-sm hover:shadow-md cursor-pointer'>
+                        Already have an account? Log in
                     </div>
                 </div>
             </div>
@@ -181,7 +201,7 @@ const RegisterModal = () => {
     <Modal
           disabled={isLoading}  
           isOpen={registerModal.isOpen} 
-          title='Register'
+          title={<Lago />}
           actionLabel='Continue'
           onClose={registerModal.onClose}
           onSubmit={handleSubmit(onSubmit)} 

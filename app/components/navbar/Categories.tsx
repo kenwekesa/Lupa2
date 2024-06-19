@@ -14,96 +14,158 @@ import { useState } from "react";
 import { FaGem } from "react-icons/fa";
 import { MdOutlineHolidayVillage } from "react-icons/md";
 import { TbBuildingCottage } from "react-icons/tb";
+
+
 export const categories = [
     {
-        label: 'Beach',
+        label: 'Hotel',
         icon: TbBeach,
         description: "This property is close to the beach!"
     },
     {
-        label: 'Windmills',
+        label: 'Hostel',
         icon: GiWindmill,
         description: "This property is has windmill!"
     },
     {
-        label: 'Modern',
+        label: 'Bed and Breakfast',
         icon: MdOutlineVilla,
         description: "This property is modern!"
     },
     {
-        label: 'Countryside',
+        label: 'Inn',
         icon: TbMountain,
         description: "This property is in the countryside!"
     },
     {
-        label: 'Villas',
+        label: 'Motel',
         icon: MdOutlineHolidayVillage,
         description: "This property is Villas!"
     },
     {
-        label: 'Swimming Pool',
+        label: 'Resort',
         icon: TbPool,
         description: "This property has a pool!"
     },
     {
-        label: 'Hidden gems',
+        label: 'Villa',
         icon: FaGem,
         description: "This property is a type of Hidden gems!"
     },
     {
-        label: 'Island',
+        label: 'Cottage',
         icon: GiIsland,
         description: "This property is on an Island!"
     },
     {
-        label: 'Cottages',
+        label: 'Cabin',
         icon: TbBuildingCottage,
         description: "This property is a Cottages!"
     },
     {
-        label: 'Lake and Ocean',
+        label: 'Apartment',
         icon: GiBoatFishing,
         description: "This property is close to a lake!"
     },
     {
-        label: 'Skiing',
+        label: 'Condominium',
         icon: FaSkiing,
         description: "This property has skiing activities!"
     },
     {
-        label: 'Classic Castles',
+        label: 'Vacation Rental',
         icon: GiCastle,
         description: "This property is in a castle!"
     },
     {
-        label: 'Camping',
+        label: 'Boutique Hotel',
         icon: GiForestCamp,
         description: "This property has camping activities!"
     },
     {
-        label: 'Arctic',
+        label: 'Guesthouse',
         icon: BsSnow,
         description: "This property has camping activities!"
     },
     {
-        label: 'Cave',
+        label: 'Homestay',
         icon: GiCaveEntrance,
         description: "This property is in a cave!"
     },
     {
-        label: 'Desert',
+        label: 'Eco-lodge',
         icon: GiCactus,
         description: "This property is in the desert!"
     },
     {
-        label: 'Barns',
+        label: 'Houseboat',
         icon: GiBarn,
         description: "This property is in the barn!"
     }, 
     {
-        label: 'Lux',
+        label: 'Farmstay',
         icon: IoDiamond,
         description: "This property is in the luxurious!"
+    },
+     {
+        label: 'Ryokan',
+        icon: TbBeach,
+        description: "This property is close to the beach!"
+    },
+    {
+        label: 'Treehouse',
+        icon: GiWindmill,
+        description: "This property is has windmill!"
+    },
+    {
+        label: 'Glamping',
+        icon: MdOutlineVilla,
+        description: "This property is modern!"
+    },
+    {
+        label: 'Tiny House',
+        icon: TbMountain,
+        description: "This property is in the countryside!"
+    },
+    {
+        label: 'Yurt',
+        icon: MdOutlineHolidayVillage,
+        description: "This property is Villas!"
+    },
+    {
+        label: 'Castle',
+        icon: TbPool,
+        description: "This property has a pool!"
+    },
+    {
+        label: 'Chalet',
+        icon: FaGem,
+        description: "This property is a type of Hidden gems!"
+    },
+    {
+        label: 'Beach House',
+        icon: GiIsland,
+        description: "This property is on an Island!"
+    },
+    {
+        label: 'Ranch',
+        icon: TbBuildingCottage,
+        description: "This property is a Cottages!"
+    },
+    {
+        label: 'Safari Lodge',
+        icon: GiBoatFishing,
+        description: "This property is close to a lake!"
+    },
+    {
+        label: 'House Swap',
+        icon: FaSkiing,
+        description: "This property has skiing activities!"
+    },
+    {
+        label: 'Pension',
+        icon: GiCastle,
+        description: "This property is in a castle!"
     }
 ]
 

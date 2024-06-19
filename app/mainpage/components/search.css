@@ -1,0 +1,24 @@
+.datepicker-label-up {
+  position: relative; /* Enable relative positioning */
+  display: inline-block; /* Allow inline elements within */
+}
+
+.datepicker-label-up input {
+  padding-top: 1.5rem; /* Adjust padding to accommodate label */
+}
+
+.datepicker-label-up .label {
+  position: absolute; /* Position label absolutely */
+  top: 0; /* Align with top of the input */
+  left: 10px; /* Adjust horizontal positioning as needed */
+  opacity: 0; /* Hide initially */
+  transition: opacity 0.2s ease-in-out; /* Smooth transition */
+  pointer-events: none; /* Prevent interaction with label */
+  font-size: 0.875rem; /* Adjust font size as needed */
+  color: gray; /* Adjust font color as needed */ /* Optional */
+}
+
+.datepicker-label-up:focus-within .label {
+  opacity: 1; /* Show label on focus */
+  pointer-events: auto; /* Allow interaction with label */
+}

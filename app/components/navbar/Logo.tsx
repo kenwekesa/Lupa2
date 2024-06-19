@@ -3,6 +3,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import "./navbar.css"
+import logo from "../../../public/images/logo.jpeg"
 
 const Logo = () => {
 
@@ -14,17 +16,20 @@ const Logo = () => {
           onClick={() => router.push('/')}
           alt="logo"
           className="cursor-pointer rounded-full logo-image-background-image"
-          height="30"
-          width="30"
-          src="/images/logo.jpeg"
+          height="50"
+          width="50"
+          src={logo}
         />
         </div>
-        <div className="text-2xl font-bold">
-          {/* <h2 className="main-color-black">Devan<span className="main-color">ceTours</span></h2>      */}
+        <div className="text-xl font-bold">
           <div className="items-center">
-            <Link href="/"><h2>Devanca<span className="text-sm">Tours</span></h2></Link>
+            <Link href="/">
+              {/* <p style={{ maxWidth: "max-content" }}>
+                <span className="block">Lee-yan</span>
+                <span className="block text-sm software-logo">smart properties</span>
+              </p> */}
+            </Link>
           </div>
-         
        </div>
     </div>
   )

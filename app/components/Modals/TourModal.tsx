@@ -15,6 +15,7 @@ import Input from "../Inputs/Input"
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
+import Lago from "../navbar/Lago";
 
 enum STEPS {
     CATEGORY = 0,
@@ -748,7 +749,7 @@ const TourModal = () => {
 
   return (
       <Modal
-          title="Devanca Tours!"
+          title={<Lago />}
           isOpen={tourModal.isOpen}
           onClose={tourModal.onClose}
           secondaryAction={step === STEPS.CATEGORY ? undefined: onBack}

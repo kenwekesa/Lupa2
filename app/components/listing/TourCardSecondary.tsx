@@ -77,28 +77,28 @@ const TourCardSecondary: React.FC<ListingCardProps> = ({
                       className="object-cover h-full w-full transition group-hover:scale-110 main-image-small-screen-i main-image-small-screen"
                   />
                   <div className="absolute top-3 right-3">
-                      <HeartButton
+                      {/* <HeartButton
                           listingId={data?.id} //added ?
                           currentUser={currentUser}
-                      />
+                      /> */}
                   </div>
               </div>
               <div className="text-sm pt-1 pb-2 font-semibold text-md truncate max-w-[20rem]">
                  <span className="text-neutral-700">{data.title}</span>
               </div>
-              <div className="font-light text-neutral-500">
+              <div className="font-light mt-[-16px] text-neutral-500">
                  {reservationDate || data.category} 
               </div>
               <div className="flex flex-row items-center gap-1">
               </div>
-              {onAction && actionLabel && (
+              {/* {onAction && actionLabel && (
                   <Button
                       disabled={disabled}
                       small
                       label={actionLabel}
                       onClick={handleCancel}
                   />
-              )}
+              )} */}
           </div>   
     </div>
   )

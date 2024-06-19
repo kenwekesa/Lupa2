@@ -31,7 +31,7 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
 }) => {
     const router = useRouter();
     const { getByValue } = useCountries();
-    const location = getByValue(data?.locationValue); //added ?
+    // const location = getByValue(data?.locationValue); //added ?
 
     const handleCancel = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
         e.stopPropagation();
@@ -64,10 +64,10 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
  
   return (
       <div
-        onClick={() => router.push(`/listings/${data?.id}`)} //added ?
+        onClick={() => router.push(`/stays/${data?.id}`)} //added ?
         className="col-span-1 bg-white shadow-md pb-3 rounded-xl cursor-pointer group"
       >
-          <div className="flex h-[50vh] flex-col gap-2 w-full main-image-small-screen">
+          <div className="flex h-[50vh] flex-col gap-[6px] w-full main-image-small-screen">
               <div className="aspect-square w-full relative overflow-hidden rounded-t-xl">
                   <Image
                       fill
@@ -76,25 +76,31 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
                       className="object-cover h-full w-full transition group-hover:scale-110"
                   />
                   <div className="absolute top-3 right-3">
-                      <HeartButton
+                      {/* <HeartButton
                           listingId={data?.id} //added ?
                           currentUser={currentUser}
-                      />
+                      /> */}
                   </div>
               </div>
-
               <div className="flex flex-row justify-between px-4">
               <div>
-                <span className="font-bold">{data.city}</span>      
-              </div>
-              <div className="text-sm truncate max-w-[10rem]">
-                 <span>{location?.label},</span> {location?.region}
+                <span className="font-bold text-neutral-800">{data?.title}</span>      
               </div>
              </div>
-              <div className="font-light px-4 text-neutral-400">
+              <div className="flex flex-row gap-1 items-center px-4">
+              <div>
+                <span className="font-bold text-neutral-800">{data?.county},</span>      
+              </div>
+              <div className="text-sm truncate max-w-[10rem]">
+                 {data?.town}
+              </div>
+             </div>
+              <div className="flex flex-row items-center gap-1 font-light px-4 text-neutral-400">
                   {/* {reservationDate || data.category}  */}
                   {/* <span>{ data.startDate}</span> to <span>{ data.endDate}</span> */}
-                  <span className="text-sm">{ data.category }</span>
+                  <span className="text-sm text-neutral-900 bg-green-400 py-[5px] px-[7px] rounded-bl-xl rounded-tr-xl">{data.ratings}</span>
+                  <span className="text-sm text-neutral-900">Excellent .</span>
+                  <span className="text-sm text-neutral-500">Reviews</span>
               </div>
               <div className="px-4">
                   <hr />
@@ -104,11 +110,11 @@ const ListingCardMain: React.FC<ListingCardProps> = ({
                      from ${price}
                   </div> */}
                   <div>
-                     from <span className="font-semibold">${price}</span> 
+                     {/* from <span className="font-semibold">${price}</span>  */}
                   </div>
-                  { data.save !== 0 && (
+                  { data.offerPrice !== 0 && (
                       <div>
-                          <span className="text-blue-500">save</span> <span className="font-semibold text-blue-600">${data.save}</span>
+                          <span className="text-neutral-800">Price: </span> <span className="font-semibold text-neutral-600">Ksh. {data.price}</span>
                       </div>
                   )}
                   {/* {!reservation && (

@@ -15,7 +15,6 @@
 //     params: IListingsParams
 // ) {
 //     try {
-
 //         const {
 //             userId,
 //             roomCount,
@@ -29,8 +28,11 @@
         
 //         let query: any = {};
 
-//         if (userId) {
-//             query.userId = userId;
+//         // Remove the userId from the destructuring and handle it separately
+//        const { userId: userIdParam, ...restParams } = params || {};
+
+//         if (userIdParam) {
+//             query.userId = userIdParam;
 //         }
 
 //         if (category) {
@@ -85,9 +87,9 @@
 //             }
 //         });
 
-//         const safeListing = listings.map((listings) => ({
-//             ...listings,
-//             createAt: listings.createAt.toISOString(),
+//         const safeListing = listings.map((listing) => ({
+//             ...listing,
+//             createAt: listing.createAt.toISOString(),
 //         }));
 
 //         return safeListing; 
@@ -96,32 +98,6 @@
 //         throw new Error(error);
 //     }
 // }
-
-
-
-// //************************ */
-// // import prisma from '@/app/libs/prismadb';
-
-// // export default async function getListings() {
-// //     try {
-// //         const listings = await prisma.listing.findMany({
-// //             orderBy: {
-// //                 createAt: 'desc'
-// //             }
-// //         });
-
-// //         const safeListing = listings.map((listings) => ({
-// //             ...listings,
-// //             createAt: listings.createAt.toISOString(),
-// //         }));
-
-// //         return safeListing; 
-        
-// //     } catch (error: any) {
-// //         throw new Error(error);
-// //     }
-// // }
-
 
 import prisma from '@/app/libs/prismadb';
 
@@ -137,7 +113,7 @@ export interface IListingsParams {
 }
 
 export default async function getListings(
-    params: IListingsParams
+    params: IListingsParams = {}
 ) {
     try {
         const {
@@ -154,7 +130,7 @@ export default async function getListings(
         let query: any = {};
 
         // Remove the userId from the destructuring and handle it separately
-       const { userId: userIdParam, ...restParams } = params || {};
+        const { userId: userIdParam, ...restParams } = params;
 
         if (userIdParam) {
             query.userId = userIdParam;
@@ -193,13 +169,13 @@ export default async function getListings(
                         OR: [
                             {
                                 endDate: { gte: startDate },
-                                startDate: {lte: startDate},
+                                startDate: { lte: startDate },
                             },
                             {
                                 startDate: { lte: endDate },
-                                endDate: {gte: endDate}
+                                endDate: { gte: endDate }
                             }
-                       ] 
+                        ]
                     }
                 }
             }
@@ -220,7 +196,6 @@ export default async function getListings(
         return safeListing; 
         
     } catch (error: any) {
-        throw new Error(error);
+        throw new Error(error.message);
     }
 }
-

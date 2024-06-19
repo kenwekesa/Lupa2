@@ -45,56 +45,8 @@ const Ways: React.FC<DestinationsItemProp> = ({ onClick, label, handleMenuToggle
   }, [handleClickOutside]);
 
   return (
-    <div className="relative" onClick={onClick}>
-      <div className="flex flex-row items-center gap-3">
-        <div
-          ref={menuRef}
-          className={`p-4 md:py-1 text-sm hover:underline md:px-2 flex flex-row items-center gap-2 cursor-pointer transition ${
-            isOpen ? "" : ""
-          }`}
-          onClick={toggleOpen}
-        >
-          <div className="text-sm">Ways to travel</div>
-          <SlArrowDown className="nav-icons-items" size={12} />
-        </div>
-      </div>
-      {isOpen && (
-        <div className="absolute nav-small-way rounded-xl shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">
-          <div className="flex flex-col px-6 w-full cursor-pointer">
-            <>
-              <MenuItem onClick={() => {
-                router.push("/discoveryjourney");
-                handleMenuItemClick();
-              }} label="Discovery Journey" />
-              <MenuItem
-                onClick={() => {
-                  router.push("/regionaljourney");
-                  handleMenuItemClick();
-                }}
-                label="Regional Journey"
-              />
-              <MenuItem
-                onClick={() => {
-                  router.push("/countryroads");
-                  handleMenuItemClick();
-                }}
-                label="Country Roads"
-              />
-              <MenuItem
-                onClick={() => {
-                  router.push("/oceancruise");
-                  handleMenuItemClick();
-                }}
-                label="Ocean cruise"
-              />
-              {/* <MenuItem
-                onClick={() => router.push("/primeadventures")}
-                label="Prime adventures"
-              /> */}
-            </>
-          </div>
-        </div>
-      )}
+    <div className="relative">
+      <div className="text-md cursor-pointer font-semibold hover:underline hover:cursor-pointer" onClick={() => {router.push("/about")}}>About</div>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 // import { IUsersParams } from "@/app/actions/getClients";
 // import getUsers from "@/app/actions/getUsers";
-// import prisma from '@/app/libs/prismadb';
+import prisma from '@/app/libs/prismadb';
 
 // import { NextApiRequest, NextApiResponse } from "next";
 
@@ -61,52 +61,27 @@
 
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function GET(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'GET') {
+export default async function POST(req: NextApiRequest, res: NextApiResponse) {
+   
+        console.log("Backend reached....");
+        try {
+            const { email } = req.body;
 
-        console.log("Back end reached....")
-        // try {
-        //     const { id, name, email, userType } = req.query;
+            if (!email) {
+                return res.status(400).json({ error: 'Email is required' });
+            }
 
-        //     let query: any = {};
+            const user = await prisma.user.findUnique({
+                where: { email: String(email) },
+            });
 
-        //     if (id) {
-        //         query.id = Number(id);
-        //     }
+            const emailExists = !!user;
+            console.log('Email exists:', emailExists);
 
-        //     if (name) {
-        //         query.name = String(name);
-        //     }
+            res.status(200).json({ exists: emailExists });
+        } catch (error) {
+            console.error('An error occurred:', error);
+            res.status(500).json({ error: 'An error occurred' });
+        }
+    } 
 
-        //     if (email) {
-        //         query.email = String(email);
-        //     }
-
-        //     if (userType === 'client') {
-        //         query.userType = 'client';
-        //     }
-
-        //     // ... (other filters)...
-
-        //     const users = await prisma.user.findMany({
-        //         where: query,
-        //         // orderBy: {
-        //         //     createAt: 'desc'
-        //         // }
-        //     });
-
-        //     const safeUsers = users.map((user: any) => ({
-        //         ...user,
-        //         // createAt: user.createAt.toISOString(),
-        //     }));
-
-        //     console.log('Users from backend', safeUsers);
-        //     res.status(200).json(safeUsers);
-        // } catch (error) {
-        //     console.error('An error occurred:', error);
-        //     res.status(500).json({ error: 'An error occurred' });
-        // }
-    } else {
-        res.status(405).json({ message: 'Method Not Allowed' });
-    }
-}

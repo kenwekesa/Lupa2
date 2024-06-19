@@ -21,25 +21,29 @@ const ProfilePage = async ({ searchParams, tourParams }: HotelPageProps) => {
 
 
   // Render the Home component with the fetched listings
-  if(currentUser?.userType !== "client") {
-      // Render link to homepage if the current user is not an admin
-      return (
-        <RestrictedEmptyState/>
-      );
-    }
+  // if(currentUser?.userType !== "client") {
+  //     // Render link to homepage if the current user is not an admin
+  //     return (
+  //       <RestrictedEmptyState/>
+  //     );
+  // }
+
   return (
     <div>
     <div className="all-destinations-main-admin-profile flex flex-col items-center justify-center text-lg font-bold">
      <h1 className="color-h1-destinations-main-admin-profile">{currentUser?.name}<span className="color-span-green"></span></h1>
       </div>
       <Container>
-        <div className="grid grid-cols-5 gap-10 pt-16">
-            <div className="col-span-1">
+        <div className="grid grid-cols-6 gap-10 pt-16">
+            <div className="col-span-2">
             <SideBar />
             </div>      
-            <div className="col-span-4">
-            <div className="py-6">
-              <h1 className="text-2xl font-bold">Personal Information</h1>            
+            <div className="col-span-4 border-[1px] border-solid border-neutral-300 rounded-lg py-4 px-6">
+            <div className="pb-6">
+              <h1 className="text-xl font-semibold">My personal information</h1>            
+            </div>
+            <div className="pt-2 pb-4">
+              <hr />
             </div>
             <div className="flex flex-row justify-between items-center pb-8">
               <p>Full Name</p>

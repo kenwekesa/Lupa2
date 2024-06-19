@@ -44,7 +44,7 @@ const Input: React.FC<InputProps> = ({
              type={type} 
              style={style} // Using style attribute here (if provided)
              className={
-                  `peer w-full p-2 pt-3 font-light bg-white border-2 rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed ${formatPrice ? 'pl-9' : 'pl-4'}
+                  `peer w-full p-2 pt-3 font-light bg-white border-[1px] rounded-md outline-none transition disabled:opacity-70 disabled:cursor-not-allowed ${formatPrice ? 'pl-9' : 'pl-4'}
                   ${error[id] ? 'border-rose-500' : 'border-neutral-300'} ${error[id] ? 'focuse:border-rose-500' : 'focus:border-black'}`
              }
           />

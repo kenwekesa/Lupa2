@@ -26,7 +26,7 @@ const generatePassword = (shortCode: number, passkey: string, timestamp: string)
 try {
     
     const requestData= await req.json()
-    
+    console.log("BOOOOOODY", requestData)
 
         // Access the properties from the finalData object
         const { PhoneNumber, Amount, ShortCode, AccountReference, accessToken }: MpesaPaymentRequest = requestData;
@@ -34,7 +34,9 @@ try {
        // const accessToken = await getAccessToken(); // Call a function to retrieve access token
 
 
-    
+       console.log("server received acess token===>", accessToken)
+       console.log("server received amount===>", Amount)
+       console.log("server received phone===>", PhoneNumber)
 
        // Generate the timestamp
     const timestamp = new Date().toISOString().replace(/[^0-9]/g, '').slice(0, -3);
@@ -54,7 +56,7 @@ try {
             PartyA: `254${PhoneNumber.slice(1)}`, // Sanitize the phone number,
             PartyB:174379,   // 4119567,
             PhoneNumber: `254${PhoneNumber.slice(1)}`, // Sanitize the phone number,
-            CallBackURL: 'https://e7fb-154-159-254-48.ngrok-free.app/api/callback',//'https://www.devancatour.com//api/callback', // Replace with your callback URL
+            CallBackURL: 'https://www.devancatour.com//api/callback', // Replace with your callback URL
             TransactionDesc: "stk push",
             AccountReference: 'Payment for your purchase',
         };

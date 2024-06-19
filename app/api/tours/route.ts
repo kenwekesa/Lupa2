@@ -1,7 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import getCurrentUser from "@/app/actions/getCurrentUsers";
 import prisma from '@/app/libs/prismadb'
-import { NextApiResponse } from "next";
 
 
 export async function POST(
@@ -127,84 +126,3 @@ export async function POST(
 
     return NextResponse.json(tour);
 }
-
-export async function GET(req:NextRequest, res:NextApiResponse) {
-
-    try {
-        
-   
-    // const { destination } = req.query;
-  let countryValue = req.nextUrl.searchParams.get("country")
-  let continentValue = req.nextUrl.searchParams.get('continent')
-
-  let country= countryValue !== 'undefined' ? countryValue : '';
-   let continent = continentValue !== 'undefined' ? continentValue : '';
-
-
-  
-   
-
-
-
-    console.log("Country", country)
-    console.log("continent", continent)
-    let searchParams: any = {};
-
-        // Remove the userId from the destructuring and handle it separately
-       //const { userId: userIdParam, ...restParams } = params || {};
-       if(country && country ==='all')
-        {
-            if (continent && continent!=='') {
-                searchParams.continent =  continent.toLowerCase();
-            }
-            const tours = await prisma.tour.findMany({
-                where: searchParams,
-                orderBy: {
-                    createAt: 'desc'
-                }
-            });
-        
-            const safeTour = tours.map((tour) => ({
-                ...tour,
-                createAt: tour.createAt.toISOString(),
-            }));
-        
-            return NextResponse.json(safeTour);
-        }
-        else 
-        {
-
-       
-            if (continent && continent!=='') {
-                searchParams.continent =  continent.toLowerCase();
-            }
-
-
-        if (country && country!=='') {
-            searchParams.country =  country.toLowerCase();
-        }
-
-        console.log("Search params", searchParams)
-
-        // if (category) {
-        //     query.category = category;
-        // }
-    
-    const tours = await prisma.tour.findMany({
-        where: searchParams,
-        orderBy: {
-            createAt: 'desc'
-        }
-    });
-
-    const safeTour = tours.map((tour) => ({
-        ...tour,
-        createAt: tour.createAt.toISOString(),
-    }));
-
-    return NextResponse.json(safeTour);
-}
-} catch (error) {
-       console.log("Error----  ", error) 
-}
-  }

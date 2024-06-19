@@ -79,7 +79,7 @@ const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
     <nav
       ref={navbarRef}
-      className={`fixed nav-main-page sm:py-4 md:py-3 lg:py-2 xl:py-2 2xl:py-2 max-2xl:py-2 w-full z-20 shadow-sm ${
+      className={`fixed nav-main-page sm:py-4 border-b-1 border-white md:py-3 lg:py-2 xl:py-2 2xl:py-2 max-2xl:py-2 w-full z-20 shadow-sm ${
         isScrolled ? "bg-white text-black hover:text-black" : "bg-black bg-opacity-50 text-white"
       }`}
     >

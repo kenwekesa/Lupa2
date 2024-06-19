@@ -21,26 +21,43 @@ const ProfilePage = async () => {
   // Fetch listings and current user asynchronousl
   return (
       <div className="border-[2px] sidebar-image-main rounded-xl px-5">
-          <div className="w-full text-center items-center py-5">
-          <FaCircleUser className="text-neutral-500" size={ 29 } /> 
+          <div className="w-full flex justify-center text-center items-center py-5">
+          <FaCircleUser className="text-neutral-500" size={ 50 } /> 
+          </div>
+          <div className="py-3">
+          <hr />
           </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
          <Link href="/client/profile"><FaRegUser className="text-neutral-500" size={26} /> </Link>
-          <Link href="/client/profile" className="sidebar-image">Personal Info</Link>
+          <Link href="/client/profile" className="sidebar-image">My personal details</Link>
           </div>
+          <div className="py-3">
           <hr />
+          </div>
            <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <Link href="/client/mybookedtours"><LiaSwatchbookSolid className="text-neutral-500" size={26} /></Link>
-          <Link href="/client/mybookedtours" className="sidebar-image">My Booked Tours</Link>
+          <Link href="/client/reservations"><LiaSwatchbookSolid className="text-neutral-500" size={26} /></Link>
+          <Link href="/client/reservations" className="sidebar-image">my reservations</Link>
           </div>
+          <div className="py-3">
           <hr />
+          </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <Link href="/client/mybookedhotels"><IoBookmarks className="text-neutral-500" size={26} /></Link>
-          <Link href="/client/mybookedhotels" className="sidebar-image">My Booked Hotels</Link>
-           </div>
+          <Link href="/client/property-purchases"><IoBookmarks className="text-neutral-500" size={26} /></Link>
+          <Link href="/client/property-purchases" className="sidebar-image">My property purchases</Link>
+          </div>
+          <div className="py-3">
+          <hr />
+          </div>
           <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
-          <Link href="/client/mybookedhouses"><FaRegAddressBook className="text-neutral-500" size={26} /></Link>
-          <Link href="/client/mybookedhouses" className="sidebar-image">My Booked Houses</Link>
+          <Link href="/client/property-rentals"><FaRegAddressBook className="text-neutral-500" size={26} /></Link>
+          <Link href="/client/property-rentals" className="sidebar-image">My property rentals</Link>
+          </div>
+          <div className="py-3">
+          <hr />
+          </div>
+          <div className="hover:font-semibold text-md flex cursor-pointer hover:bg-neutral-200 flex-row gap-3 py-4 items-center">
+          <Link href="/client/land-purchases"><FaRegAddressBook className="text-neutral-500" size={26} /></Link>
+          <Link href="/client/land-purchases" className="sidebar-image">My land purchases</Link>
           </div>
     </div>
   )

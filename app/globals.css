@@ -28,9 +28,9 @@
   }
 
   /* Style the container for the main content */
-  .container-children {
+  /* .container-children {
     @apply max-w-[2520px] xl:px-20 md:px-10 sm:px-2 px-4;
-  }
+  } */
 
   /* Style the logo and navigation layout */
   /* .nav-logo {
@@ -40,11 +40,11 @@
   /* Style the logo image background with custom CSS variables */
   .logo-image-background {
     display: inline-flex;
-    padding: 10px;
+    padding: 6px;
     align-items: flex-start;
     gap: 10px;
     border-radius: 60px;
-    background: var(--logocolor, #55E4D6);
+    background: var(--logocolor, #497a75);
   }
 
   /* Style text with the main color gradient */
@@ -112,7 +112,8 @@
 
   /* Styles for the main modal background */
   .modal-main {
-    background-color: rgb(38 38 38);
+    /* background-color: rgb(38 38 38); */
+    background-color: white;
   }
 
   /* Styles for the content inside the main modal */
@@ -158,11 +159,12 @@
 }
 
 .footer-main {
-  background-color: #092635;
+  background: var(--Button-Color, linear-gradient(96deg, rgba(127, 226, 80, 0.25) -10.44%, rgba(11, 255, 196, 0.25) 108.53%, rgba(11, 138, 255, 0.25) 108.54%));
 }
 
 .footer-main hr {
-  background: linear-gradient(96deg, rgba(154, 110, 107, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(171, 34, 26, 0.77) 108.87%) !important;
+  /* background: linear-gradient(96deg, rgba(154, 110, 107, 0.77) -10.44%, rgba(31, 106, 88, 0.77) 108.53%, rgba(1, 255, 209, 0.77) 108.54%, rgba(3, 255, 195, 0.77) 108.87%, rgba(11, 255, 196, 0.77) 108.87%, rgba(171, 34, 26, 0.77) 108.87%) !important; */
+  /* color: black; */
   width: 100%;
   height: 1px;
 }
@@ -175,7 +177,7 @@
 }
 
 .european-hotel-main {
-  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-image: url('../public/images/rental5.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
   background-color: rgba(0, 0, 0, 0.42);
   /* Red color with 60% opacity */
@@ -190,7 +192,7 @@
 }
 
 .european-hotel {
-  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-image: url('../public/images/virtual.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
   background-color: rgba(0, 0, 0, 0.42);
   /* Red color with 60% opacity */
@@ -200,8 +202,15 @@
   background-position: center;
   background-repeat: no-repeat;
   flex-shrink: 0;
-  height: 24vh;
+  height: 25vh;
   margin-top: -8% !important;
+}
+
+.line-clamp-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .hotel-search {
@@ -273,6 +282,7 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  background-color: green;
   border-radius: 20px;
   border: 2px solid var(--whitebutton-Color, #FFF);
 }
@@ -287,23 +297,23 @@
 }
 
 .banner-btn-r {
-  margin-top: -28% !important;
+  margin-top: -20% !important;
   z-index: 10 !important;
   margin-bottom: 10% !important;
 }
 
 .banner-btn h1 {
-  color: rgb(6, 4, 36);
+  color: wheat;
   /* color: var(--logocolor, #55E4D6); */
   font-family: "Abril Fatface", serif;
-  font-size: 53px;
+  font-size: 45px;
   font-style: normal;
   font-weight: 800;
   line-height: normal;
 }
 
 .banner-btn h2 {
-  color: #FFF;
+  color: white;
   text-align: center;
   font-family: Kanit;
   font-size: 40px;
@@ -314,13 +324,13 @@
 
 .main-item-border {
   display: flex;
-  padding: 10px 20px 25px 20px;
+  /* padding: 10px 20px 25px 20px; */
   flex-direction: column;
   align-items: center;
   gap: 10px;
   /* cursor: pointer; */
   border-radius: 15px;
-  border: 1px solid #A1A1A1;
+  /* border: 1px solid #A1A1A1; */
   color: #666;
   font-size: 15px;
   font-style: normal;
@@ -328,9 +338,17 @@
 }
 
 .SearchMain-page {
-  margin-top: -7% !important;
+  margin-top: -10% !important;
   position: relative;
   z-index: 10 !important;
+
+}
+
+.Search-main-page {
+  margin-top: -3.2% !important;
+  position: relative;
+  z-index: 10 !important;
+
 }
 
 .main-item-border-r {
@@ -506,10 +524,10 @@
   height: auto;
 }
 
-.all-destinations-main {
-  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+.all-main-property-sales {
+  background-image: url('../public/images/rental5.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
-  background-color: rgba(0, 0, 0, 0.42);
+  background-color: rgba(0, 0, 0, 0.37);
   /* Red color with 60% opacity */
   background-blend-mode: overlay;
   /* Blend the background image and color */
@@ -517,7 +535,52 @@
   background-position: center;
   background-repeat: no-repeat;
   flex-shrink: 0;
-  height: 30vh;
+  height: 62vh;
+  margin-top: -8% !important;
+}
+
+.all-main-property-rentals {
+  background-image: url('../public/images/lands.jpg');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.37);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 62vh;
+  margin-top: -8% !important;
+}
+
+.all-land-sales {
+  background-image: url('../public/images/lend4.jpg');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.37);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 62vh;
+  margin-top: -8% !important;
+}
+
+.all-about {
+  background-image: url('../public/images/about.png');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.37);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 62vh;
   margin-top: -8% !important;
 }
 
@@ -537,7 +600,7 @@
 }
 
 .all-destinations-main-loader {
-  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-image: url('../public/images/virtual.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
   background-color: rgba(0, 0, 0, 0.42);
   /* Red color with 60% opacity */
@@ -547,12 +610,12 @@
   background-position: center;
   background-repeat: no-repeat;
   flex-shrink: 0;
-  height: 11vh;
+  height: 13vh;
   margin-top: -8% !important;
 }
 
-.color-h1-destinations-main {
-  color: #FFF;
+.color-property-sales-main {
+  color: wheat;
   font-family: Kanit;
   font-size: 30px;
   font-style: normal;
@@ -584,7 +647,7 @@
 }
 
 .alldestinations-main {
-  background-image: url('../public/images/adventure2.jpg');
+  background-image: url('../public/images/virtual.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
   background-color: rgba(0, 0, 0, 0.42);
   /* Red color with 60% opacity */
@@ -594,7 +657,22 @@
   background-position: center;
   background-repeat: no-repeat;
   flex-shrink: 0;
-  height: 24vh;
+  height: 31vh;
+  margin-top: -8% !important;
+}
+
+.offers-main {
+  background-image: url('../public/images/virtual.jpg');
+  /* Replace 'your-image.jpg' with the path to your image */
+  background-color: rgba(0, 0, 0, 0.42);
+  /* Red color with 60% opacity */
+  background-blend-mode: overlay;
+  /* Blend the background image and color */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+  height: 43vh;
   margin-top: -8% !important;
 }
 
@@ -633,7 +711,7 @@
 }
 
 .carousel-main-div {
-  margin-top: -30% !important;
+  margin-top: -27% !important;
   z-index: 5 !important;
   /* width: 100vw!important; */
 }
@@ -647,7 +725,7 @@
 }
 
 .all-destinations-main-admin-profile {
-  background-image: url('https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+  background-image: url('../public/images/virtual.jpg');
   /* Replace 'your-image.jpg' with the path to your image */
   background-color: rgba(0, 0, 0, 0.42);
   /* Red color with 60% opacity */
@@ -765,7 +843,7 @@
 
   .main-image-small-image-main-one {
     height: auto !important;
-    width: 22vw !important;
+    /* width: 22vw !important; */
   }
 
   .main-image-small-image {
@@ -1063,10 +1141,10 @@
     z-index: 10 !important;
   }
 
-  .main-image-small-image-main-one {
+  /* .main-image-small-image-main-one {
     height: 20.5vh !important;
     width: 20.5vw !important;
-  }
+  } */
 
   .trending-list-main-page {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -1173,11 +1251,11 @@
     height: 35vh !important;
     /* width: 91vw !important; */
   }
-
+/* 
   .main-image-small-image-main-one {
     height: 20.5vh !important;
     width: 20.5vw !important;
-  }
+  } */
 
   .trending-list-main-page {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -1296,10 +1374,10 @@
     visibility: hidden !important;
   }
 
-  .main-image-small-image-main-one {
+  /* .main-image-small-image-main-one {
     height: 20.5vh !important;
     width: 20.5vw !important;
-  }
+  } */
 
   .trending-list-main-page {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
