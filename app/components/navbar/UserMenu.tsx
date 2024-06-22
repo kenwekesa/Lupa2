@@ -1,4 +1,4 @@
-import { AiOutlineMenu } from "react-icons/ai";
+import { AiOutlineDown } from "react-icons/ai";
 import Avater from "../container/Avater";
 import { useCallback, useState, useRef, useEffect } from "react";
 import MenuItem from "./MenuItem";
@@ -33,6 +33,7 @@ import useLandModal from "@/app/hooks/useLandModal";
 import usePropertyModal from "@/app/hooks/usePropertyModal";
 import { MdOutlineAccountBalance } from "react-icons/md";
 import useCountyModal from "@/app/hooks/useCountyModal";
+import './usermenu.css'
 
 interface UserMenuProps {
   currentUser?: SafeUser | null;
@@ -97,17 +98,52 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser, handleMenuToggle }) =>
   return (
     <div className="relative" ref={menuRef}>
       <div className="flex flex-row items-center gap-3">
+        {!currentUser? 
+        <div className="signingBtns">
+          <div className="Btnsignin"  onClick={() => {
+              registerModal.onOpen("client");
+              handleMenuItemClick();
+            }}>Signup</div>
+           <div className="Btnlogin"  onClick={() => {
+              loginModal.onOpen();
+              handleMenuItemClick();
+            }}>Login</div>
+        </div>
+      //   <>
+      //   <div className="flex flex-row items-center">
+      //     <CiLogin className="nav-icons-items" size={23} />
+      //     <MenuItem
+      //       onClick={() => {
+      //         loginModal.onOpen();
+      //         handleMenuItemClick();
+      //       }}
+      //       label="Login"
+      //     />
+      //   </div>
+      //   <div className="flex flex-row items-center">
+      //     <CiUser className="nav-icons-items" size={23} />
+      //     <MenuItem
+      //       onClick={() => {
+      //         registerModal.onOpen("client");
+      //         handleMenuItemClick();
+      //       }}
+      //       label="Sign up"
+      //     />
+      //   </div>
+      // </>
+        :
         <div
-          className={`p-4 md:py-1 md:px-2 border-[1.5px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition ${
+          className={`p-4 md:py-1 md:px-2 border-[1.5px] border-neutral-200 flex flex-row items-center gap-3 rounded-sm cursor-pointer hover:shadow-md transition ${
             isOpen ? "" : ""
           }`}
           onClick={toggleOpen}
         >
-          <AiOutlineMenu />
           <div className="hidden md:block">
             <Avater src={currentUser?.image} />
           </div>
+          <AiOutlineDown />
         </div>
+        }
       </div>
       {isOpen && (
         <div className="absolute nav-small-menu rounded-xl border-[1.5px] border-neutral-300 shadow-md bg-white text-black overflow-hidden right-0 top-11 text-sm user-menu-width">

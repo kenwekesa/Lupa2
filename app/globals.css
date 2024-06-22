@@ -13,7 +13,8 @@
   /* Set default font family and background color for the HTML element */
   html {
     background-color: #f5f5f5de;
-    font-family: 'Kanit', sans-serif;
+    /* font-family: 'Kanit', sans-serif; */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
   }
 
   /* Style the navigation bar */

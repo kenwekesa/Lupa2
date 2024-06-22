@@ -8,3 +8,427 @@
     border: 1px;
 
 }
+
+.banner-title  {
+    font-size: 60px;
+    font-weight: bolder;
+    margin-bottom: 3px;
+    color: rgb(255, 187, 0);
+}
+
+.banner-title-one {
+    margin-top: 2px;
+    font-size: 25px;
+}
+.headBannerr {
+    position: relative;
+}
+.headBannerr .coloredoverlay {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgba(18, 0, 31, 0.8), rgba(0, 0, 0, 0));
+}
+
+
+
+ /* .headerr {
+    background: url('../../../public/hotel.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    height: 500px;
+    padding: 20px;
+    position: relative;
+}
+
+.headerr .overlay {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to right, rgba(18, 0, 31, 0.8), rgba(0, 0, 0, 0));
+}
+
+.headerr .headerContainer {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1024px;
+    margin: 20px 0px 100px 0px;
+    color: black;
+}
+
+.headerr .headerContainer.listmode {
+    margin: 20px 0px 0px 0px;
+}
+
+.headerr .headerContainer .topDiv {
+    width: 48%;
+    margin-top: 30px;
+    color: white;
+    margin-top: auto;
+}
+
+.headerr .headerContainer .topDiv .headerTitle {
+    font-size: 60px;
+    font-weight: bolder;
+    margin-bottom: 3px;
+    color: rgb(255, 187, 0);
+}
+
+.headerr .headerContainer .topDiv .headertitle {
+    margin-top: 2px;
+    font-size: 25px;
+}
+
+.headerr .headerContainer .topDiv .description {
+    font-size: 16px;
+}
+
+.headerr .headerContainer .headerList {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: black;
+}
+
+.headerr .headerContainer .headerList .headerListItem {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+}
+
+.headerr .headerContainer .headerList .headerListItem.active {
+    border: 1px solid rgb(187, 7, 118);
+    border-radius: 6px;
+}
+
+.headerr .headerContainer .headerTitle {
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.headerr .headerContainer .description {
+    margin-top: 10px;
+}
+
+.headerr .headerContainer .button {
+    width: fit-content;
+    padding: 8px;
+    background-color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.headerr .headerContainer .headerSearch {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: white;
+    justify-content: space-around;
+    padding: 10px 2px;
+    gap: 8px;
+    position: absolute;
+    width: 100%;
+    max-width: 1024px;
+    bottom: -100px;
+    border-radius: 12px;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: fit-content;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .headerSearchText {
+    color: rgb(182, 177, 177);
+    border: none;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .headerSearchInput {
+    border: none;
+    outline: none;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .headerSearchButton {
+    color: white;
+    background-color: rgb(20, 20, 160);
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .destinationField {
+    width: 300px;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .headerIcon {
+    color: lightgray;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .date {
+    position: absolute;
+    top: 120px;
+    z-index: 10;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .options {
+    z-index: 10;
+    color: gray;
+    position: absolute;
+    top: 50px;
+    background-color: white;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .optionItem {
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .optionItem .itemCounterContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    color: black;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .optionItem .itemCounterContainer .optionCounterButton {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #0071c2;
+    color: #0071c2;
+    background-color: white;
+}
+
+.headerr .headerContainer .headerSearch .headerSearchItem .optionItem .itemCounterContainer .optionCounterButton:disabled {
+    cursor: not-allowed;
+}
+
+@media screen and (max-width: 480px) {
+    .headerr {
+        background: url('../../../public/hotel.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        height: 500px;
+        padding: 20px;
+        position: relative;
+    }
+
+    .headerr .overlay {
+        top: 0;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background: linear-gradient(to right, rgba(18, 0, 31, 0.8), rgba(0, 0, 0, 0));
+    }
+
+    .headerr .headerContainer {
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1024px;
+        margin: 20px 0px 100px 0px;
+        color: black;
+    }
+
+    .headerr .headerContainer.listmode {
+        margin: 20px 0px 0px 0px;
+    }
+
+    .headerr .headerContainer .topDiv {
+        width: 60%;
+        margin-top: 30px;
+        color: white;
+        margin-top: auto;
+    }
+
+    .headerr .headerContainer .topDiv .headerTitle {
+        font-size: 50px;
+        font-weight: bolder;
+        margin-bottom: 3px;
+        color: rgb(255, 187, 0);
+    }
+
+    .headerr .headerContainer .topDiv .headertitle {
+        margin-top: 2px;
+        font-size: 20px;
+    }
+
+    .headerr .headerContainer .topDiv .description {
+        font-size: 16px;
+    }
+
+    .headerr .headerContainer .headerList {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: black;
+    }
+
+    .headerr .headerContainer .headerList .headerListItem {
+        display: flex;
+        align-items: center;
+        padding: 8px;
+    }
+
+    .headerr .headerContainer .headerList .headerListItem.active {
+        border: 1px solid rgb(187, 7, 118);
+        border-radius: 6px;
+    }
+
+    .headerr .headerContainer .headerTitle {
+        margin-top: 20px;
+        padding: 5px;
+    }
+
+    .headerr .headerContainer .description {
+        margin-top: 10px;
+    }
+
+    .headerr .headerContainer .button {
+        width: fit-content;
+        padding: 8px;
+        background-color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .headerr .headerContainer .headerSearch {
+        height: 160px;
+        display: flex;
+        align-items: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        background-color: white;
+        justify-content: space-around;
+        padding: 8px 2px;
+        gap: 2px;
+        position: absolute;
+        width: 99vh;
+        max-width: 1024px;
+        bottom: -100px;
+        border-radius: 12px;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        width: fit-content;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .headerSearchText {
+        color: rgb(182, 177, 177);
+        border: none;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .headerSearchInput {
+        border: none;
+        outline: none;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .headerSearchButton {
+        color: white;
+        background-color: rgb(20, 20, 160);
+        padding: 6px;
+        border-radius: 3px;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .headerSearchButton .outlinedSearchIcon {
+        display: none;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .destinationField {
+        width: 150px;
+        font-size: 15px;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .destinationField .destinationSearchInput {
+        font-size: 10px;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .dateCheckoutPicker {
+        width: 120px;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .dateCheckinPicker {
+        width: 120px;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .headerIcon {
+        display: none;
+        color: lightgray;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .date {
+        position: absolute;
+        top: 120px;
+        z-index: 10;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .options {
+        z-index: 10;
+        color: gray;
+        position: absolute;
+        top: 50px;
+        background-color: white;
+        border-radius: 5px;
+        -webkit-box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
+        box-shadow: 0px 0px 10px -5px rgba(0, 0, 0, 0.5);
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .optionItem {
+        width: 200px;
+        display: flex;
+        justify-content: space-between;
+        margin: 10px;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .optionItem .itemCounterContainer {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+        color: black;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .optionItem .itemCounterContainer .optionCounterButton {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #0071c2;
+        color: #0071c2;
+        background-color: white;
+    }
+
+    .headerr .headerContainer .headerSearch .headerSearchItem .optionItem .itemCounterContainer .optionCounterButton:disabled {
+        cursor: not-allowed;
+    }
+} */

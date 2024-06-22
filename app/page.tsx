@@ -10,7 +10,7 @@ import ListingCardMain from "./components/listing/ListingCardMain";
 import TourCardSecondary from "./components/listing/TourCardSecondary";
 import EmblaMobile from "./mainpage/components/EmblaMobile";
 
-
+ 
 import imagebook from "../public/images/maint.jpg"
 import Stay from "./mainpage/components/Stays";
 import Emblawebsite from "./mainpage/components/Emblawebsite";
@@ -70,7 +70,8 @@ const Home = async ({ searchParams, tourParams, offerParams, countyParams }: Hom
 
   return (
     <div>
-    <div className="w-full carousel-main-div-carousel">
+    <div className="w-full carousel-main-div-carousel relative">
+    <div className='coloredoverlay'></div>
         <Carousel />
       </div>
       <Container>

@@ -25,14 +25,14 @@ import CountyModal from './components/Modals/CountyModal'
 // Define metadata for the page
 export const metadata: Metadata = {
   title: {
-    default: "Lee-yan smart properties: Your Ultimate Travel and Tour Agency!",
-    template: "%s - Lee-yan smart properties: Your Ultimate Travel and Tour Agency!"
+    default: "Lupa Travels",
+    template: "%s - Lupa Travels"
   },
-  description: 'Book customized vacations, tours, and travel packages worldwide with Devanca Tours, your ultimate bespoke travel agency.',
+  description: 'Find an book you next Destination with us, find a hotel and tour partner.',
   keywords: "Tour Travel Vacations Holidays Packages Worldwide Bespoke"
 }
 
-// RootLayout function component definition
+// RootLayout function component definition 
 export default async function RootLayout({
   children,
 }: {
