@@ -77,23 +77,23 @@ const EmblaMobile: React.FC<ListingCardProps> = ({
           {chunkedData.map((slide, slideIndex) => (
             <div key={slideIndex} className="embla__slide grid grid-cols-3 gap-4">
               {slide.map((offer, cardIndex) => (
-                <div key={cardIndex} className={`grid-cols-1 pb-4 relative ${cardIndex % 2 === 0 ? 'even-card' : 'odd-card'}`}>
+                <div key={cardIndex} className={`grid-cols-1 pb-4 relative ${cardIndex % 2 === 0 ? 'odd-card' : 'odd-card'}`}>
                   <div className="h-[25vh] caro-sel image-carousel-o mx-auto shadow-lg rounded-lg mb-4 relative">
                     <div className="overlay inset-0 image-main-gb rounded-xl"></div>
                     <Image src={offer.imageSrc[0]} width={600} height={400} alt="Image" className="image-carousel shadow-md rounded-xl object-cover" />
                   </div>
                   <div className="relative flex justify-between embla-last z-10">
                     <div>
-                      <p className="text-lg font-bold pb-2">{offer.title}</p>
-                      <p className="text-sm flex pb-4 gap-4">
-                        {offer.action}
-                      </p>
                       <button
                         onClick={() => router.push(`/offer/${offer.id}`)}
                         className='caroe-embla-link px-5 py-2 text-sm shadow-md rounded-3xl'
                       >
                         Explore
                       </button>
+                      <p className="text-lg font-bold pb-2">{offer.title}</p>
+                      <p className="text-sm flex pb-4 gap-4">
+                        {offer.action}
+                      </p>
                     </div>
                     <Image src={offer.imageSrc[0]} width={100} height={100} alt="Image" className="image-carousel image-carousel-t shadow-lg rounded-lg object-cover" />
                   </div>
